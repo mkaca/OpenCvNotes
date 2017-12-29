@@ -23,7 +23,7 @@
    -Closing
    -Morphological Gradientv
 -STRUCTURING ELEMENT
-
+------------------------------------------------------------------------------------
 --------------------------------------Contours:
 
 - Canny
@@ -43,7 +43,7 @@
    -Distance from contour to object
 - Match Shapes
 - Hierarchy
-
+------------------------------------------------------------------------------------
 ----------------------------------Feature Recognition    file contains:
 
 - Harris Corner detection
@@ -57,7 +57,7 @@
 	- Brute Force
         - FLANN
         - Homography
-
+------------------------------------------------------------------------------------
 -------------------------------VideoAnalysis           file contains:
 
 - Meanshift
@@ -67,4 +67,10 @@
 - Background subtraction:
 	- BackgroundSubtractorMOG 
 	- BackgroundSubtractorMOG2   (more accurate)              ( I LIKEEEEE)
-	- BackgroundSubtractorGMG   ( around as accurate as MOG2) ( I LIKEEEEE)
+	- BackgroundSubtractorGMG   (around as accurate as MOG2)  ( I LIKEEEEE)
+- Face Detection with Haar                                        ( I LIKEEEEE)
+
+------------------------------------------------------------------------------------
+-------------CameraCalibrationAnd3DReconstruction      file contains:
+
+- path to tutorials about calibration and disparity 

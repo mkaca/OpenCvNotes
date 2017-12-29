@@ -252,3 +252,50 @@ while(1):
 
 cap.release()
 cv2.destroyAllWindows()
+
+
+
+
+############################# Face Detection using Haar Cascades ################################
+
+""" basically takes the fact that eyes are darker than its surroundings to find them in an image using
+     a summation of points within a given rectangular area ..... 
+       since this is so computationally heavy, algorithm focuses on discarding areas that are most likely
+         not faces first... aka CASCADE OF CLASSIFIERS  ...aka if a window passes first stage, it goes to
+            the second stage, then the 3rd stage and so on, until it classifies a face or fails at a stage
+
+  OpenCv comes with a trainer and a detector .... you can train your own classifier for any object like car
+    planes, etc... but you have to create it .... see existing pre-trained classifiers for face, eyes, smile,
+     etc, in opencv/data/haarcascades    ....
+
+  Below is an example of creating a face and eye detector in opencv:"""
+
+# load cascade classifiers: 
+face_cascade = cv2.CascadeClassifier('C:\\Users\\dabes\\Downloads\\opencv\\sources\\data\\haarcascades\\haarcascade_frontalface_default.xml')
+eye_cascade = cv2.CascadeClassifier('C:\\Users\\dabes\\Downloads\\opencv\\sources\\data\\haarcascades\\haarcascade_eye.xml')
+
+cap = cv2.VideoCapture(0)
+
+while(1):
+    ret, frame = cap.read()
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    # if faces are found, returns x,y,w,h  
+    #   draw the faces and then search for eyes within the faces and draw them!!!
+    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+    for (x,y,w,h) in faces:
+        img = cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),2)
+        roi_gray = gray[y:y+h, x:x+w]
+        roi_color = img[y:y+h, x:x+w]
+        eyes = eye_cascade.detectMultiScale(roi_gray)
+        for (ex,ey,ew,eh) in eyes:
+            if ew*3 < w and ey*3 < h:
+              cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
+
+    cv2.imshow('frame',frame)
+    k = cv2.waitKey(30) & 0xff
+    if k == 27:
+        break
+
+cap.release()
+cv2.destroyAllWindows()

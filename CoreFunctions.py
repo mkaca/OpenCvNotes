@@ -89,3 +89,15 @@ cv2.destroyAllWindows()
 #Ex:
 blur = cv2.GaussianBlur(img,(5,5),0)
 
+
+
+######### Image Denoising ###################
+
+#### these are super computationally heavy  ... I wouldnt use 
+
+# 1. MeanDenoisingColored ........ awesome for low resolution pics to make them better 
+dst = cv2.fastNlMeansDenoisingColored(img,None,10,10,7,21)
+
+# 2. MeanDenoisingMulti .....
+dst = cv2.fastNlMeansDenoisingMulti(img, 2, 5, None, 4, 7, 35)
+
