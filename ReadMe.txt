@@ -71,6 +71,18 @@
 - Face Detection with Haar                                        ( I LIKEEEEE)
 
 ------------------------------------------------------------------------------------
+----------------------------Machine Learning          file contains:
+
+- kNN:
+	-kNN digit example
+	-kNN letter example
+	-kNN save and load trained data                           ( I LIKEEEEE)
+- K-Means Clustering:
+	- Single Feature Example
+	- Multiple Feature Example
+	- Color Quantization                                      ( I LIKEEEEE)
+
+------------------------------------------------------------------------------------
 -------------CameraCalibrationAnd3DReconstruction      file contains:
 
 - path to tutorials about calibration and disparity 
